@@ -4,9 +4,6 @@ A collection of GitOps and Kubernetes continuous delivery projects focused on de
 
 This repository serves as a central workspace for exploring practical GitOps workflows, declarative Kubernetes deployments, continuous delivery, configuration management, and production-oriented deployment practices.
 
----
-
-## 🎯 Purpose
 
 The goal of this repository is to demonstrate how GitOps can be used to manage Kubernetes environments through **Git as the source of truth**.
 
