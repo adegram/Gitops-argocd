@@ -1,0 +1,14 @@
+replicaCount: 2
+image: {repository: nginxinc/nginx-unprivileged, tag: 1.27-alpine, digest: "", pullPolicy: IfNotPresent}
+service: {port: 80}
+serviceAccount: {create: true, name: "", automountServiceAccountToken: false}
+autoscaling:
+  enabled: true
+  minReplicas: 3
+  maxReplicas: 15
+  cpuUtilization: 65
+  memoryUtilization: 75
+podDisruptionBudget: {enabled: true, minAvailable: 2}
+resources:
+  requests: {cpu: 100m, memory: 128Mi}
+  limits: {cpu: 500m, memory: 256Mi}
