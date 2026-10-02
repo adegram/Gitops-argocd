@@ -1,0 +1,24 @@
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ .Values.HorizontalPodAutoscaler.metadata.name }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: {{ .Values.HorizontalPodAutoscaler.spec.scaleTargetRef.name }}
+  minReplicas: {{ .Values.HorizontalPodAutoscaler.spec.minReplicas }}
+  maxReplicas: {{ .Values.HorizontalPodAutoscaler.spec.maxReplicas }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.HorizontalPodAutoscaler.spec.metrics.resource.target.averageUtilization }}
+        
+# Watch the api-gateway-deployment.
+# Keep at least 3 pods running.
+# Allow up to 10 pods maximum.
+# If average CPU usage reaches 70%, add more pods.
+# If CPU usage drops, reduce pods.

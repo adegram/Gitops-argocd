@@ -1,0 +1,42 @@
+# Default values for api-gateway-microservice to be passed into your templates.
+
+replicaCount: 1
+name: order
+
+spec:
+  container:
+    name: order-service
+    image: adehorizon/order-service:3.1
+    port: 3002
+
+resources:
+  limits:
+    memory: "128Mi"
+    cpu: "500m"
+  requests:
+    memory: "64Mi"
+    cpu: "250m"  
+
+  readinessProbe:
+    httpGet:
+      path: /health
+      port: 3002
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    
+  livenessProbe:
+    httpGet:
+      path: /health
+      port: 3002
+    initialDelaySeconds: 15
+    periodSeconds: 20 
+
+service:
+  metadata:
+    name: order-service
+  spec:
+    selector:
+      app: order
+    ports:
+    - port: 3002
+      targetPort: 3002

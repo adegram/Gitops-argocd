@@ -1,0 +1,43 @@
+# Default values for api-gateway-microservice to be passed into your templates.
+
+replicaCount: 1
+name: order
+
+
+spec:
+  container:
+    name: product-service
+    image: adehorizon/product-service:3.1
+    port: 3001
+
+resources:
+  limits:
+    memory: "128Mi"
+    cpu: "500m"
+  requests:
+    memory: "64Mi"
+    cpu: "250m"  
+
+  readinessProbe:
+    httpGet:
+      path: /health
+      port: 3001
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    
+  livenessProbe:
+    httpGet:
+      path: /health
+      port: 3001
+    initialDelaySeconds: 15
+    periodSeconds: 20 
+
+service:
+  metadata:
+    name: product-service
+  spec:
+    selector:
+      app: product
+    ports:
+    - port: 3001
+      targetPort: 3001

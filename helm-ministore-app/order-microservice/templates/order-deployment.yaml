@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    app: {{ .Values.name }}
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+    spec:
+      containers:
+      - name: {{ .Values.spec.container.name }}
+        image: {{ .Values.spec.container.image }}
+        ports:
+        - containerPort: {{ .Values.spec.container.port }}
+            
+        resources:
+          limits:
+            memory: {{ .Values.resources.limits.memory }}
+            cpu: {{ .Values.resources.limits.cpu }}
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
+
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.resources.readinessProbe.httpGet.path }}
+            port: {{ .Values.resources.readinessProbe.httpGet.port }}
+          initialDelaySeconds: {{ .Values.resources.readinessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.resources.readinessProbe.periodSeconds }}
+
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.resources.livenessProbe.httpGet.path }}
+            port: {{ .Values.resources.livenessProbe.httpGet.port }}
+          initialDelaySeconds: {{ .Values.resources.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.resources.livenessProbe.periodSeconds }} 

@@ -1,0 +1,13 @@
+NOTES:
+Product Microservice has been deployed.
+
+Release: {{ .Release.Name }}
+Namespace: {{ .Release.Namespace }}
+
+Check your pods:
+
+kubectl get pods -n {{ .Release.Namespace }}
+
+Check your service:
+
+kubectl get svc -n {{ .Release.Namespace }}

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.ConfigMap.metadata.name }}
+data:
+  PRODUCT_SERVICE_URL: {{ .Values.ConfigMap.data.PRODUCT_SERVICE_URL }}
+  ORDER_SERVICE_URL: {{ .Values.ConfigMap.data.ORDER_SERVICE_URL }}
+  NOTIFICATION_SERVICE_URL: {{ .Values.ConfigMap.data.NOTIFICATION_SERVICE_URL }}

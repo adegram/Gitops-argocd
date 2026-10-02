@@ -1,0 +1,42 @@
+# Default values for api-gateway-microservice to be passed into your templates.
+
+replicaCount: 1
+name: notification
+
+spec:
+  container:
+    name: notification-service
+    image: adehorizon/notification-service:3.1
+    port: 3003
+
+resources:
+  limits:
+    memory: "128Mi"
+    cpu: "500m"
+  requests:
+    memory: "64Mi"
+    cpu: "250m"  
+
+  readinessProbe:
+    httpGet:
+      path: /health
+      port: 3003
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    
+  livenessProbe:
+    httpGet:
+      path: /health
+      port: 3003
+    initialDelaySeconds: 15
+    periodSeconds: 20 
+
+service:
+  metadata:
+    name: notification-service
+  spec:
+    selector:
+      app: notification
+    ports:
+    - port: 3003
+      targetPort: 3003

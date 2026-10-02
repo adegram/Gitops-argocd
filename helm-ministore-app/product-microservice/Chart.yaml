@@ -1,0 +1,8 @@
+apiVersion: v2
+name: product-microservice
+description: A Helm chart for Kubernetes
+
+type: application
+
+# It is recommended to use it with quotes.
+appVersion: "3.1"
