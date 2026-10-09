@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: drift-detection-demo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/REPLACE_WITH_GITHUB_OWNER/Gitops-argocd.git
+    targetRevision: main
+    path: gitops-drift-detection/manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: drift-demo
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions: [CreateNamespace=true]
