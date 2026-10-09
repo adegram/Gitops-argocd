@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/REPLACE_WITH_GITHUB_OWNER/Gitops-argocd.git
+    repoURL: https://github.com/adegram/Gitops-argocd.git
     targetRevision: main
     path: gitops-drift-detection/manifests
   destination:
