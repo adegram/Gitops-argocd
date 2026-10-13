@@ -1,5 +1,3 @@
-# GitOps Drift Detection
-
 ## Overview
 
 This project demonstrates GitOps drift detection and reconciliation using Argo CD and declarative Kubernetes manifests.
