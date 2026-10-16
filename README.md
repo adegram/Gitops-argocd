@@ -16,7 +16,6 @@ Projects in this repository focus on concepts such as:
 - Automated synchronization
 - Drift detection and reconciliation
 - Helm-based deployments
-- Environment management
 - Application configuration
 - Deployment automation
 - Kubernetes manifests
@@ -57,6 +56,5 @@ Gitops-argocd/
 ├── project-1/
 ├── project-2/
 ├── project-3/
-├── project-4/
 │
 └── README.md
