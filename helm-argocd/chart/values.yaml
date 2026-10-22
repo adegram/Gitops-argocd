@@ -1,5 +1,6 @@
-replicaCount: 2
-image: {repository: nginxinc/nginx-unprivileged, tag: 1.27-alpine, digest: "", pullPolicy: IfNotPresent}
+replicaCount: 4
+image: {repository: nginx/nginx:stable-alpine,  digest: "", pullPolicy: IfNotPresent}
+
 service: {port: 80}
 serviceAccount: {create: true, name: "", automountServiceAccountToken: false}
 autoscaling:
