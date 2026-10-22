@@ -1,7 +1,7 @@
 replicaCount: 4
-image: {repository: nginx/nginx:stable-alpine,  digest: "", pullPolicy: IfNotPresent}
+image: {repository: nginx/nginx:stable-alpine, tag: 3.24, digest: "", pullPolicy: IfNotPresent}
 
-service: {port: 80}
+service: {port: 8080}
 serviceAccount: {create: true, name: "", automountServiceAccountToken: false}
 autoscaling:
   enabled: true
