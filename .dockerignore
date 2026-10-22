@@ -4,4 +4,5 @@
 !.env.example
 *.secret.yaml
 *.sealed-secret.yaml
+.apikey
 .DS_Store
