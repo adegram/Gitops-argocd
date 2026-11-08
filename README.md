@@ -8,7 +8,6 @@ This repository serves as a central workspace for exploring practical GitOps wor
 The goal of this repository is to demonstrate how GitOps can be used to manage Kubernetes environments through **Git as the source of truth**.
 
 Projects in this repository focus on concepts such as:
-
 - GitOps principles and workflows
 - Argo CD continuous delivery
 - Kubernetes application deployments
