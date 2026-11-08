@@ -1,6 +1,6 @@
 # GitOps-Argo CD
 
-A collection of GitOps and Kubernetes continuous delivery projects focused on deploying, managing, and automating cloud-native applications using **Argo CD** and related technologies.
+A collection of GitOps & Kubernetes continuous delivery projects focused on deploying, managing, and automating cloud-native applications using **Argo CD** and related technologies.
 
 This repository serves as a central workspace for exploring practical GitOps workflows, declarative Kubernetes deployments, continuous delivery, configuration management, and production-oriented deployment practices.
 
